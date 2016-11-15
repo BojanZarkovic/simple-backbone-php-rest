@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ToDo list app</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link media="screen and (max-width:800px)" rel="stylesheet" href="assets/css/mobstyle.css">
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+</head>
+<body>
+	<div class="wrapper" id="articles-app">
+	<div id="search-bar">
+
+	<input id="search" type="text" placeholder="search">
+	<img src="http://cliparts.co/cliparts/dc4/oz7/dc4oz7Bgi.png">
+	</div>
+	<h4>Todo list</h4>
+		<div class="fields">
+			<input class="field" type="text" id="article-name" placeholder="What needs to be done?">
+		</div>
+		<div class="buttons">
+				<button class="button" type="" id="save-article">Add item</button>
+				<div id="notice"></div>
+			</div>
+
+		<div id="articles-list">
+		<ul>
+		<!-- Backbone's template for a single aricle -->
+			<script type="text/template" id="article-item-tmpl">
+				<li>
+					<input type="checkbox" id="toggle" <%= isDone %>/> <div id="listed-name" class="name <%= markDone %>"><%= name %></div>
+					<input type="text" id="hidden-input" class="hidden" value="<%= name %>" />
+					<a href="javascript:;" class="edit-name">
+						<img src="assets/img/compose.png">
+					</a>
+					<a href="javascript:;" class="remove">
+						<img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-1/512/delete-icon.png">
+					</a>
+				</li>
+			</script>
+		</ul>
+		</div>
+	</div>
+	<div id="footer">
+		Bojan Žarković - backbone.js exercise
+	</div>
+	<!-- JS Libs -->
+	<script src="assets/js/jquery-3.1.0.js" type="text/javascript" charset="utf-8"></script>	
+	<script src="assets/js/underscore.js" type="text/javascript" charset="utf-8"></script>
+	<script src="assets/js/backbone.js" type="text/javascript" charset="utf-8"></script>
+	<!-- bb Models -->
+	<script src="app/models/article.model.js" type="text/javascript" charset="utf-8"></script>
+	<!-- bb Collections -->
+	<script src="app/collections/articles.collection.js" type="text/javascript" charset="utf-8"></script>
+	<!-- bb Views -->
+	<script src="app/views/article.view.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/views/app.view.js" type="text/javascript" charset="utf-8"></script>
+	<!-- App Main -->
+	<script src="app/articles-app.js" type="text/javascript" charset="utf-8"></script>
+	<!-- old browser notice: -->
+	<script> 
+		var $buoop = {
+			vs: {
+				i:11,
+				f:-2,
+				o:-2,
+				s:9,
+				c:-2
+			}, 
+			unsecure: true,
+			c:4
+		}; 
+		function $buo_f() { 
+ 			var e = document.createElement("script"); 
+ 			e.src = "//browser-update.org/update.min.js"; 
+ 			document.body.appendChild(e);
+		};
+		try {
+			document.addEventListener("DOMContentLoaded", $buo_f, false);
+		} catch(e) {
+			window.attachEvent("onload", $buo_f);
+		}
+	</script>
+</body>
+</html>
